@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600;700&family=Orbitron:wght@400;600;700;800;900&display=swap"
+      rel="stylesheet" />
+
+    <link rel="stylesheet" href="css/style.css" />
+
+    <script src="js/script.js" defer></script>
+    <title>Guess My Number</title>
+  </head>
+
+  <body>
+    <header class="bg-cyan-200 border-b-4 border-cyan-700">
+      <div
+        class="f-col items-center gap-y-8 px-6 py-8 md:f-row md:gap-x-16 md:px-24 md:py-12">
+        <button id="btn-again" class="btn-big">Again</button>
+        <button id="btn-reset-hs" class="btn-big md:ml-auto">
+          Reset Highscore
+        </button>
+      </div>
+    </header>
+
+    <section class="bg-cyan-100">
+      <div class="max-w-[1200px] mx-auto px-4 md:px-0 py-6 pt-12 lg:py-16">
+        <div class="mx-auto lg:pb-16">
+          <h1 id="guess-heading" class="block w-full mx-auto text-center mb-4">
+            Guess My Number
+          </h1>
+          <h2
+            id="num-range"
+            class="block w-full mx-auto text-center tracking-widest">
+            (From 1 to 20)
+          </h2>
+        </div>
+
+        <div
+          id="reveal-num"
+          class="w-12 h-12 mt-6 mb-0 mx-auto bg-cyan-700 text-white text-lg tracking-widest font-bold flex items-center justify-center lg:w-32 lg:h-32 lg:text-4xl">
+          ?
+        </div>
+
+        <div
+          class="f-col gap-y-12 items-center lg:p-12 w-full my-12 lg:f-row lg:justify-around">
+          <div
+            class="f-col items-center self-end gap-y-6 p-2 pt-0 pb-12 lg:pb-2 lg:ml-auto w-full border-b-2 border-cyan-700 lg:items-start lg:border-b-0 lg:border-r-2">
+            <h4 id="message" class="text-center lg:text-left">
+              Take a guess...
+            </h4>
+            <input
+              id="input-guess"
+              type="number"
+              class="bg-cyan-900 text-white px-8 py-3 rounded-md shadow-inner shadow-black focus:outline-none text-4xl text-center font-mono font-black w-64 lg:w-3/4 lg:py-8 lg:px-12" />
+            <label
+              id="check"
+              for="input-guess"
+              class="btn-big text-center w-64 lg:w-3/4 select-none"
+              >Check</label
+            >
+          </div>
+
+          <div
+            class="f-col items-center gap-y-3 p-2 w-full mx-auto lg:items-start lg:ml-12 lg:gap-y-6">
+            <p
+              class="mb-6 text-lg text-cyan-700 text-center font-mono font-bold tracking-wide leading-relaxed lg:text-left">
+              For every wrong guess you lose a point
+            </p>
+            <h2 class="mb-6 leading-tight">
+              Score: <span id="score" class="font-mono">20</span>
+            </h2>
+            <h2 class="mb-6 leading-tight">
+              High Score: <span id="highscore" class="font-mono">0</span>
+            </h2>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
