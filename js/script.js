@@ -1,5 +1,7 @@
 "use strict";
 
+const sectionMain = document.getElementById("section-main");
+
 const againBtn = document.getElementById("btn-again");
 const resetHS = document.getElementById("btn-reset-hs");
 const checkGuess = document.getElementById("check");
@@ -39,11 +41,11 @@ checkGuess.addEventListener("click", function () {
     responseMsg.textContent = "Pick a number from 1 to 20...";
   } else if (guessNum < secretNum && currScoreNum > 1) {
     responseMsg.textContent = "Try a higher number...";
-    currScoreNum = currScoreNum - 1;
+    currScoreNum--;
     currScore.textContent = currScoreNum;
   } else if (guessNum > secretNum && currScoreNum > 1) {
     responseMsg.textContent = "Try a lower number...";
-    currScoreNum = currScoreNum - 1;
+    currScoreNum--;
     currScore.textContent = currScoreNum;
   } else if (
     guessNum === secretNum &&
@@ -56,6 +58,8 @@ checkGuess.addEventListener("click", function () {
     checkGuess.disabled = true;
     revealNum.textContent = secretNum;
     numRange.textContent = "Way to go!";
+    sectionMain.classList.remove("bg-cyan-100");
+    sectionMain.classList.add("bg-lime-300");
   } else if (
     guessNum === secretNum &&
     currScoreNum > highScoreNum &&
@@ -68,10 +72,12 @@ checkGuess.addEventListener("click", function () {
     checkGuess.disabled = true;
     revealNum.textContent = secretNum;
     numRange.textContent = "New high score!";
+    sectionMain.classList.remove("bg-cyan-100");
+    sectionMain.classList.add("bg-lime-300");
 
     localStorage.setItem("highscore", highScore.textContent);
   } else {
-    currScoreNum = currScoreNum - 1;
+    currScoreNum--;
     currScore.textContent = currScoreNum;
     inputGuess.disabled = true;
     checkGuess.disabled = true;
