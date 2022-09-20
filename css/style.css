@@ -605,6 +605,10 @@ video {
   max-width: 1200px;
 }
 
+.cursor-pointer {
+  cursor: pointer;
+}
+
 .select-none {
   -webkit-user-select: none;
      -moz-user-select: none;
