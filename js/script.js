@@ -48,6 +48,7 @@ checkGuess.addEventListener("click", function () {
     currScore.textContent = currScoreNum;
   } else if (guessNum === secretNum && currScoreNum > 0) {
     guessHeading.textContent = "You guessed the number!🎯";
+    numRange.textContent = "Way to go!";
     guessHeading.style.color = "rgb(10, 160, 10)";
     inputGuess.disabled = true;
     checkGuess.disabled = true;
@@ -55,22 +56,12 @@ checkGuess.addEventListener("click", function () {
     revealNum.textContent = secretNum;
     revealNum.style.backgroundColor = "rgb(10, 160, 10)";
 
-    currScoreNum <= highScoreNum
-      ? (numRange.textContent = "Way to go!")
-      : (numRange.textContent = "New high score!🎉");
-    currScore.style.color = "rgb(10, 160, 10)";
-    highScore.textContent = String(currScoreNum);
-    localStorage.setItem("highscore", highScore.textContent);
-
-    // if (currScoreNum <= highScoreNum) {
-    //   numRange.textContent = "Way to go!";
-    // } else if (currScoreNum > highScore) {
-    //   numRange.textContent = "New high score!🎉";
-    //   currScore.style.color = "rgb(10, 160, 10)";
-    //   highScore.textContent = String(currScoreNum);
-
-    //   localStorage.setItem("highscore", highScore.textContent);
-    // }
+    if (currScoreNum > highScoreNum) {
+      numRange.textContent = "New high score!🎉";
+      currScore.style.color = "rgb(10, 160, 10)";
+      highScore.textContent = String(currScoreNum);
+      localStorage.setItem("highscore", highScore.textContent);
+    }
   } else {
     currScoreNum--;
     currScore.textContent = currScoreNum;
