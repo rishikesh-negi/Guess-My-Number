@@ -58,8 +58,6 @@ checkGuess.addEventListener("click", function () {
     checkGuess.disabled = true;
     revealNum.textContent = secretNum;
     numRange.textContent = "Way to go!";
-    sectionMain.classList.remove("bg-cyan-100");
-    sectionMain.classList.add("bg-lime-300");
   } else if (
     guessNum === secretNum &&
     currScoreNum > highScoreNum &&
@@ -72,8 +70,6 @@ checkGuess.addEventListener("click", function () {
     checkGuess.disabled = true;
     revealNum.textContent = secretNum;
     numRange.textContent = "New high score!";
-    sectionMain.classList.remove("bg-cyan-100");
-    sectionMain.classList.add("bg-lime-300");
 
     localStorage.setItem("highscore", highScore.textContent);
   } else {
