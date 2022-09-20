@@ -39,12 +39,15 @@ checkGuess.addEventListener("click", function () {
     guessNum > 20
   ) {
     responseMsg.textContent = "Pick a number from 1 to 20...";
+    responseMsg.style.color = "rgb(250,5,5)";
   } else if (guessNum < secretNum && currScoreNum > 1) {
     responseMsg.textContent = "Try a higher number...";
+    responseMsg.style.color = "rgb(234, 88, 12)";
     currScoreNum--;
     currScore.textContent = currScoreNum;
   } else if (guessNum > secretNum && currScoreNum > 1) {
     responseMsg.textContent = "Try a lower number...";
+    responseMsg.style.color = "rgb(234, 88, 12)";
     currScoreNum--;
     currScore.textContent = currScoreNum;
   } else if (
@@ -52,39 +55,48 @@ checkGuess.addEventListener("click", function () {
     currScoreNum <= highScoreNum &&
     currScoreNum > 0
   ) {
-    responseMsg.textContent = "You guessed it!";
-    guessHeading.textContent = "You guessed the number!";
+    numRange.textContent = "Way to go!";
+    guessHeading.textContent = "You guessed the number!🎯";
+    guessHeading.style.color = "rgb(10, 160, 10)";
     inputGuess.disabled = true;
     checkGuess.disabled = true;
+    sectionMain.style.backgroundColor = "rgb(200, 220, 150)";
     revealNum.textContent = secretNum;
-    numRange.textContent = "Way to go!";
+    revealNum.style.backgroundColor = "rgb(10, 160, 10)";
   } else if (
     guessNum === secretNum &&
     currScoreNum > highScoreNum &&
     currScoreNum > 0
   ) {
-    responseMsg.textContent = "You guessed it!";
+    numRange.textContent = "New high score!🎉";
     highScore.textContent = String(currScoreNum);
-    guessHeading.textContent = "You guessed the number!";
+    guessHeading.textContent = "You guessed the number!🎯";
+    guessHeading.style.color = "rgb(10, 160, 10)";
+    currScore.style.color = "rgb(10, 160, 10)";
     inputGuess.disabled = true;
     checkGuess.disabled = true;
+    sectionMain.style.backgroundColor = "rgb(200, 220, 150)";
     revealNum.textContent = secretNum;
-    numRange.textContent = "New high score!";
+    revealNum.style.backgroundColor = "rgb(10, 160, 10)";
 
     localStorage.setItem("highscore", highScore.textContent);
   } else {
     currScoreNum--;
     currScore.textContent = currScoreNum;
+    currScore.style.color = "rgb(250,5,5)";
     inputGuess.disabled = true;
     checkGuess.disabled = true;
-    checkGuess.setAttribute("opacity", "0");
-    guessHeading.textContent = "No more Guesses left";
-    responseMsg.textContent = "You ran out of guesses.";
+    sectionMain.style.backgroundColor = "rgb(250, 170 ,150)";
+    guessHeading.textContent = "No more Guesses left 🙅🏻‍♂️";
+    numRange.textContent = "You lost⛔. ⬆️Try 'Again'⬆️";
+    guessHeading.style.color = "rgb(250,5,5)";
     revealNum.textContent = secretNum;
+    revealNum.style.backgroundColor = "rgb(250,5,5)";
   }
 
   if (inputGuess.disabled) {
     responseMsg.textContent = `⬆️Play 'Again'⬆️`;
+    responseMsg.style.color = "rgb(14, 116, 144)";
   }
   inputGuess.value = "";
 });
