@@ -15,7 +15,6 @@ const currScore = document.getElementById("score");
 const highScore = document.getElementById("highscore");
 
 const secretNum = Math.trunc(Math.random() * 20) + 1;
-console.log(secretNum);
 
 if (localStorage.getItem("highscore")) {
   highScore.textContent = localStorage.getItem("highscore");
